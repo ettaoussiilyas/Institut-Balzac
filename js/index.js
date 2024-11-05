@@ -62,16 +62,17 @@ function startQuiz() {
     // document.getElementById("restart-button").classList.add("hidden");
     document.getElementById("start-button").classList.add("hidden");
     document.getElementById("question-container").classList.remove("hidden");
+    document.getElementById("timer").classList.remove("hidden");
     loadQuestion();
 }
 
 function startTimer() {
     let timeLeft = 10; // Set the timer to 10 seconds
-    document.getElementById('timer').textContent = `Time left: ${timeLeft}s`;
+    document.getElementById('timer').textContent = `${timeLeft}s`;
 
     timerInterval = setInterval(() => {
         timeLeft--;
-        document.getElementById('timer').textContent = `Time left: ${timeLeft}s`;
+        document.getElementById('timer').textContent = `${timeLeft}s`;
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
@@ -172,3 +173,4 @@ function retakeQuiz() {
     // Load the first question
     loadQuestion();
 }
+
