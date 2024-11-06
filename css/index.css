@@ -36,6 +36,9 @@ button{
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     outline: none;
+    min-width: 200px;
+    max-width: 200px;
+    height: 250px;
 }
 
 button:hover{
