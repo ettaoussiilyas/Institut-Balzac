@@ -146,15 +146,31 @@ document.getElementById("next-button").addEventListener('click', () => {
     goToNextQuestion();
 });
 
+// function endQuiz() {
+
+//     const scoreContainer = document.getElementById("score-container");
+//     scoreContainer.classList.remove("hidden");
+//     scoreContainer.innerHTML = `Votre score est de ${score} / ${questions.length}, votre Niveau est : ${levelScore(score)}`;
+//     document.getElementById("timer").style.display ="none";
+//     clearInterval(timerInterval);
+//     document.getElementById("question-container").classList.add("hidden");
+//     document.getElementById('retake-button').classList.remove('hidden');
+// }
 function endQuiz() {
+    //     const scoreContainer = document.getElementById("score-container");
+    const scoreContainer = document.getElementById("sc");
+    scoreContainer.classList.remove("hidden");
+    scoreContainer.style.display = "block"; // Ensure the container is visible
+    scoreContainer.innerHTML = `Votre score est de ${score} / ${questions.length}, votre Niveau est : ${levelScore(score)}`;
     document.getElementById("timer").style.display ="none";
     clearInterval(timerInterval);
     document.getElementById("question-container").classList.add("hidden");
-    const scoreContainer = document.getElementById("score-container");
-    scoreContainer.classList.remove("hidden");
-    scoreContainer.innerHTML = `Votre score est de ${score} / ${questions.length}, votre Niveau est : ${levelScore(score)}`;
     document.getElementById('retake-button').classList.remove('hidden');
 }
+
+
+
+
 
 function levelScore(score) {
     if (score <= 2) return 'A1';
@@ -166,6 +182,8 @@ function levelScore(score) {
 }
 
 function retakeQuiz() {
+    document.getElementById("sc").textContent = "Test de compréhension";
+
     currentQuestionIndex = 0;
     score = 0;
     document.getElementById('score-container').classList.add('hidden');
