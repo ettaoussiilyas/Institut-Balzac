@@ -15,7 +15,7 @@ body{
 }
 #quiz-container{
     text-align: center;
-    max-width: 50%;
+    max-width: 70%;
     margin: auto;
     /* margin: 0 auto;
     padding: 20px;
@@ -41,13 +41,12 @@ button{
     height: 250px;
 }
 
-button:hover{
-    background-color: #9fd0e4;
-}
 
-#question-number, #timer{
-    font-size: 2rem;
-    margin-bottom: 10px;
+
+
+#question-text #timer{
+    font-size: 20px;
+    margin-bottom: 20px;    
 }
 #timer{
 
@@ -140,4 +139,29 @@ button:hover{
 #next-button{
     color: #001e4c;
     background-color: #37bfdd;
+    width: 200px;
+    height: 50px;
+}
+
+
+button[disabled]:not(.correct):not(.incorrect) {
+    background-color: #ccc; 
+    color: black; 
+    cursor: not-allowed;
+    opacity: 0.7; 
+    border: 1px solid #aaa; 
+}
+button[disabled].correct,
+button[disabled].incorrect {
+    cursor: not-allowed; 
+}
+#question {
+    background-color: #f9f9f9; 
+    border: 2px solid #ddd; 
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #333; 
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }

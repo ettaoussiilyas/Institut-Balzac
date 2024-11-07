@@ -66,7 +66,7 @@ function shuffle(arr) {
 function startQuiz() {
     // Shuffle questions before starting the quiz
     shuffle(questions);
-
+    document.getElementById("timer").style.display ="flex";
     document.getElementById("start-button").classList.add("hidden");
     document.getElementById("question-container").classList.remove("hidden");
     loadQuestion();
@@ -120,6 +120,7 @@ function goToNextQuestion() {
 }
 
 function selectAnswer(answer, button) {
+
     const currentQuestion = questions[currentQuestionIndex];
     document.querySelectorAll('#options button').forEach(button => button.disabled = true);
     if (answer === currentQuestion.correct) {
@@ -130,6 +131,7 @@ function selectAnswer(answer, button) {
         highlightCorrectAnswer();
     }
     document.getElementById("next-button").classList.remove("hidden");
+    
 }
 
 function highlightCorrectAnswer() {
@@ -145,7 +147,7 @@ document.getElementById("next-button").addEventListener('click', () => {
 });
 
 function endQuiz() {
-    document.getElementById("timer").classList.add("hidden");
+    document.getElementById("timer").style.display ="none";
     clearInterval(timerInterval);
     document.getElementById("question-container").classList.add("hidden");
     const scoreContainer = document.getElementById("score-container");
