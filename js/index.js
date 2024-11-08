@@ -1,55 +1,57 @@
+
 const questions = [
     {
-        question: "Quelle est la capitale de la France?",
-        options: ["Paris", "Lyon", "Marseille", "Nice"],
-        correct: "Paris"
+        question: "Comment dit-on 'good morning' en francais ?",
+        options: ["Bonsoir", "Bonjour", "Salut", "Merci"],
+        correct: "Bonjour"
     },
     {
-        question: "Quel est le plus grand fleuve de France?",
-        options: ["La Seine", "La Loire", "Le Rhône", "La Garonne"],
-        correct: "La Loire"
+        question: "Quel mot en francais signifie 'thank you' ?",
+        options: ["S'il vous plait", "Merci", "Excusez-moi", "De rien"],
+        correct: "Merci"
     },
     {
-        question: "En quelle année la Révolution française a-t-elle commencé?",
-        options: ["1789", "1792", "1804", "1776"],
-        correct: "1789"
+        question: "Completez la phrase : 'Je ___ un livre.'",
+        options: ["mange", "lis", "parle", "danse"],
+        correct: "lis"
     },
     {
-        question: "Quel est le symbole national de la France?",
-        options: ["La Tour Eiffel", "Le coq gaulois", "La baguette", "Le fromage"],
-        correct: "Le coq gaulois"
+        question: "Comment dit-on 'see you soon' en francais ?",
+        options: ["A demain", "Au revoir", "A bientot", "Bonne nuit"],
+        correct: "A bientot"
     },
     {
-        question: "Quel est l'hymne national de la France?",
-        options: ["La Marseillaise", "La Carmagnole", "Le Chant des Partisans", "Aux armes citoyens"],
-        correct: "La Marseillaise"
+        question: "Quel est le contraire de 'grand' en francais ?",
+        options: ["Large", "Petit", "Mince", "Long"],
+        correct: "Petit"
     },
     {
-        question: "Quelle est la devise de la République française?",
-        options: ["Liberté, Égalité, Fraternité", "Liberté, Fraternité, Justice", "Union, Progrès, Paix", "Égalité, Justice, Démocratie"],
-        correct: "Liberté, Égalité, Fraternité"
+        question: "Completez la phrase : 'Il fait tres ___ aujourd'hui.' (parlant de la chaleur)",
+        options: ["froid", "pluvieux", "chaud", "vent"],
+        correct: "chaud"
     },
     {
-        question: "Quel est le plus haut sommet de France?",
-        options: ["Mont Blanc", "Mont Ventoux", "Pic du Midi", "Mont Aiguille"],
-        correct: "Mont Blanc"
+        question: "Quel mot en francais signifie 'family' ?",
+        options: ["Famille", "Amis", "Travail", "Maison"],
+        correct: "Famille"
     },
     {
-        question: "Qui a écrit 'Les Misérables'?",
-        options: ["Victor Hugo", "Émile Zola", "Gustave Flaubert", "Alexandre Dumas"],
-        correct: "Victor Hugo"
+        question: "Quel verbe en francais signifie 'to eat' ?",
+        options: ["Lire", "Danser", "Manger", "Ecrire"],
+        correct: "Manger"
     },
     {
-        question: "Quelle est la plus grande île française?",
-        options: ["La Corse", "Réunion", "Martinique", "Guadeloupe"],
-        correct: "La Corse"
+        question: "Comment dit-on 'I am a student' en francais ?",
+        options: ["Je suis professeur", "Je suis etudiant", "Je suis medecin", "Je suis danseur"],
+        correct: "Je suis etudiant"
     },
     {
-        question: "Comment s'appelle le célèbre dessert français composé de pâte feuilletée, crème pâtissière et glaçage?",
-        options: ["Mille-feuille", "Éclair", "Tarte Tatin", "Profiterole"],
-        correct: "Mille-feuille"
+        question: "Quel est l'infinitif du verbe 'vais' en francais ?",
+        options: ["Partir", "Venir", "Aller", "Rester"],
+        correct: "Aller"
     }
 ];
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -66,6 +68,7 @@ function shuffle(arr) {
 function startQuiz() {
     // Shuffle questions before starting the quiz
     shuffle(questions);
+    // shuffle(questions[question.option]);
     document.getElementById("timer").style.display ="flex";
     document.getElementById("start-button").classList.add("hidden");
     document.getElementById("question-container").classList.remove("hidden");
@@ -155,7 +158,8 @@ document.getElementById("next-button").addEventListener('click', () => {
 
 
 function endQuiz() {
-    localStorage.setItem("LastScore", score);
+    localStorage.setItem("LastCorrectScore", score);
+    localStorage.setItem("LastLivelScore", levelScore(score));
     const scoreContainer = document.getElementById("sc");
     scoreContainer.classList.remove("hidden");
     scoreContainer.style.display = "block"; // Ensure the container is visible

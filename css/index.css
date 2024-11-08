@@ -7,7 +7,7 @@ body{
     background-size: cover; */
     background-color: #ffffff;
     color: white;
-    min-height: 100vh;
+    min-height: 150vh;
 
 }
 .hidden{
@@ -246,4 +246,5 @@ button[disabled].incorrect {
     margin-bottom: 20px; 
     margin-top: 0px; 
     align-items: center;
+    border-top: solid 2px black;
 }
