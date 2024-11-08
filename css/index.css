@@ -65,6 +65,7 @@ button{
 .correct{
     background-color: green;
     color: white;
+    font-weight: bold;
 }
 .incorrect{
     background-color: red;

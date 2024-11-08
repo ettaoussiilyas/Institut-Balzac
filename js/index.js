@@ -82,8 +82,15 @@ function startTimer() {
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            goToNextQuestion();
+            document.querySelectorAll('#options button').forEach(button => button.disabled=true);
+            document.querySelectorAll(' button').forEach(button => {
+                if (button.textContent === questions[currentQuestionIndex].correct) {
+                    button.classList.add('correct');
+                }
+            });
+            setTimeout(goToNextQuestion, 3000);
         }
+         
     }, 1000);
 }
 
@@ -99,10 +106,10 @@ function loadQuestion() {
     currentQuestion.options.forEach(option => {
         const button = document.createElement("button");
         button.textContent = option;
-        button.className = ""; // Reset button class for safety
-        button.disabled = false; // Ensure buttons are enabled
+        button.className = ""; 
+        button.disabled = false; 
         button.addEventListener("click", () => {
-            clearInterval(timerInterval); // Stop the timer if an answer is clicked
+            clearInterval(timerInterval);
             selectAnswer(option, button);
         });
         optionsContainer.appendChild(button);
@@ -148,7 +155,6 @@ document.getElementById("next-button").addEventListener('click', () => {
 
 
 function endQuiz() {
-    //     const scoreContainer = document.getElementById("score-container");
     localStorage.setItem("LastScore", score);
     const scoreContainer = document.getElementById("sc");
     scoreContainer.classList.remove("hidden");
