@@ -88,9 +88,10 @@ function startTimer() {
 }
 
 function loadQuestion() {
+    document.getElementById("timer").style.display ="flex";
     clearInterval(timerInterval);
     startTimer();
-
+    // document.getElementById('timer').classList.remove("hidden");
     const currentQuestion = questions[currentQuestionIndex];
     document.getElementById("question").textContent = currentQuestion.question;
     const optionsContainer = document.getElementById("options");
@@ -158,6 +159,7 @@ document.getElementById("next-button").addEventListener('click', () => {
 // }
 function endQuiz() {
     //     const scoreContainer = document.getElementById("score-container");
+    localStorage.setItem("LastScore", score);
     const scoreContainer = document.getElementById("sc");
     scoreContainer.classList.remove("hidden");
     scoreContainer.style.display = "block"; // Ensure the container is visible
@@ -166,6 +168,7 @@ function endQuiz() {
     clearInterval(timerInterval);
     document.getElementById("question-container").classList.add("hidden");
     document.getElementById('retake-button').classList.remove('hidden');
+    
 }
 
 
@@ -186,7 +189,7 @@ function retakeQuiz() {
 
     currentQuestionIndex = 0;
     score = 0;
-    document.getElementById('score-container').classList.add('hidden');
+    // document.getElementById('score-container').classList.add('hidden');
     document.getElementById('retake-button').classList.add('hidden');
     document.getElementById('question-container').classList.remove('hidden');
     document.getElementById('next-button').classList.add('hidden');
