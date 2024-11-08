@@ -91,7 +91,6 @@ function loadQuestion() {
     document.getElementById("timer").style.display ="flex";
     clearInterval(timerInterval);
     startTimer();
-    // document.getElementById('timer').classList.remove("hidden");
     const currentQuestion = questions[currentQuestionIndex];
     document.getElementById("question").textContent = currentQuestion.question;
     const optionsContainer = document.getElementById("options");
@@ -147,16 +146,7 @@ document.getElementById("next-button").addEventListener('click', () => {
     goToNextQuestion();
 });
 
-// function endQuiz() {
 
-//     const scoreContainer = document.getElementById("score-container");
-//     scoreContainer.classList.remove("hidden");
-//     scoreContainer.innerHTML = `Votre score est de ${score} / ${questions.length}, votre Niveau est : ${levelScore(score)}`;
-//     document.getElementById("timer").style.display ="none";
-//     clearInterval(timerInterval);
-//     document.getElementById("question-container").classList.add("hidden");
-//     document.getElementById('retake-button').classList.remove('hidden');
-// }
 function endQuiz() {
     //     const scoreContainer = document.getElementById("score-container");
     localStorage.setItem("LastScore", score);
