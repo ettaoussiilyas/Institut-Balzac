@@ -55,7 +55,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let timerInterval;
-let quizResponses = []; // Store user responses and time
+let quizResponses = []; // pour storing user responses and time
 
 function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
